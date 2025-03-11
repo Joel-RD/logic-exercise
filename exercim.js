@@ -309,11 +309,11 @@ const plusMinus = (arr) => {
  * Entrada de Muestra
  * 6
  * Salida de Muestra
- * #
- * ##
- * ###
- * ####
- * #####
+ *      #
+ *     ##
+ *    ###
+ *   ####
+ *  #####
  * ######
  *
  * Explicación
