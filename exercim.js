@@ -141,3 +141,148 @@ const aVeryBigSum = (ar) => {
   return sum;
 };
 // console.log(aVeryBigSum([1232323, 473737272, 916281623, 6499271134, 8863351423]));
+
+/*📌 Diagonal Difference */
+/** 3️⃣
+ * Given a square matrix, calculate the absolute difference between the sums of its diagonals.
+
+For example, the square matrix  is shown below:
+
+1 2 3
+4 5 6
+9 8 9  
+The left-to-right diagonal = . 1 + 5 + 9 = 15
+The right-to-left diagonal = . 3 + 5 + 9 = 17
+Their absolute difference is . [15 - 17] = 2
+
+Function description
+
+Complete the diagonalDiference function with the following parameter:
+
+int arr[n][m]: a 2-D array of integers
+Return
+
+return int: the absolute difference in sums along the diagonals
+Input Format
+
+The first line contains a single integer, , the number of rows and columns in the square matrix .
+Each of the next  lines describes a row, , and consists of  space-separated integers .
+
+Constraints
+
+Sample Input
+
+STDIN      Function
+-----      --------
+3           arr[][] sizes n = 3, m = 3
+11 2 4     arr = [[11, 2, 4], [4, 5, 6], [10, 8, -12]]
+4 5 6
+10 8 -12
+Sample Output
+
+15
+Explanation
+
+The primary diagonal is:
+
+11
+   5
+     -12
+Sum across the primary diagonal: . 11 + 5 - 12 = 4;
+
+The secondary diagonal is:
+
+     4
+   5
+10
+Sum across the secondary diagonal: 4 + 5 +10 = 19;
+Difference: [4 - 19] = 15
+*/
+const diagonalDifference = (arr) => {
+  const n = arr.length;
+
+  let sum1 = 0;
+  let sum2 = 0;
+
+  for (let i = 0; i < arr.length; i++) {
+    sum1 += arr[i][i];
+    sum2 += arr[i][n - 1 - i];
+  }
+
+  return Math.abs(sum1 - sum2);
+};
+// console.log(
+//   diagonalDifference([
+//     [12, 45, 78, 23, 56, 89, 34, 67, 90, 21],
+//     [54, 76, 32, 98, 10, 65, 87, 43, 29, 81],
+//     [67, 89, 23, 45, 78, 90, 12, 34, 56, 98],
+//     [43, 21, 67, 89, 12, 45, 78, 23, 56, 90],
+//     [98, 76, 32, 54, 10, 65, 87, 43, 29, 81],
+//     [23, 45, 78, 90, 12, 34, 56, 98, 67, 89],
+//     [54, 76, 32, 98, 10, 65, 87, 43, 29, 81],
+//     [67, 89, 23, 45, 78, 90, 12, 34, 56, 98],
+//     [43, 21, 67, 89, 12, 45, 78, 23, 56, 90],
+//     [-98, 76, 32, 54, 10, 65, 87, 43, 29, 81],
+//   ])
+// );
+
+/*📌Calcule las proporciones */
+/*4️⃣
+Dada una matriz de enteros, calcule las proporciones de sus elementos que son positivos , negativos y zero,  Imprima el valor decimal de cada fracción en una nueva línea con 6 lugares después del decimal.
+
+Nota: Este desafío introduce problemas de precisión. Los casos de prueba se escalan a seis decimales, aunque respuestas con error absoluto de hasta 10 -4 son aceptadas.
+
+Ejemplo:
+arr = [1, 1, 0, -1, -1]
+
+Hay n = 5 elementos : dos positivos , dos negaticos y uno cero , Sus proporciones son 2/5 = 0.4, 2/5 = 0.4, 1/5 = 0.2 . Los resultados se imprimen como: 
+
+***************************************************************
+* 0.4                                                         *
+* 0.4                                                         *
+* 0.4                                                         *
+***************************************************************
+
+Imprimir
+
+Imprima las relaciones de valores positivos, negativos y cero en la matriz. Cada valor debe imprimirse en una línea separada con 6 dígitos después del decimal. La función no debe devolver un valor.
+
+Formato de Entrada
+
+La primera línea contiene un número entero, n  , el tamaño de la matriz.
+La segunda línea contiene n enteros separados por espacio que describen arr[n].
+
+
+Entrada de Muestra
+
+STDIN           Function
+-----           --------
+6               arr[] size n = 6
+-4 3 -9 0 4 1   arr = [-4, 3, -9, 0, 4, 1]
+Salida de Muestra
+
+0.500000
+0.333333
+0.166667
+*/
+const plusMinus = (arr) => {
+  let positive = 0;
+  let negative = 0;
+  let zero = 0;
+
+  arr.forEach((value) => {
+    if (value < 0) negative++;
+    if (value === 0) zero++;
+    if (value > 0) positive++;
+  });
+
+  let result1 = positive / arr.length;
+  let result2 = negative / arr.length;
+  let result3 = zero / arr.length;
+  let absoluteResult = [result1, result2, result3];
+
+  absoluteResult.forEach((element) => {
+    console.log(element);
+  });
+};
+// plusMinus([1,-1 , -1, 1, 1]);
