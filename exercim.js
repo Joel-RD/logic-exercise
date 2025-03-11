@@ -286,3 +286,47 @@ const plusMinus = (arr) => {
   });
 };
 // plusMinus([1,-1 , -1, 1, 1]);
+
+/*📌 Staircase */
+/**
+ * Detalle de escalera
+ * Esta es una escalera de tamaño n = 4:
+ *
+ * Su base y altura son iguales a n. Se dibuja usando # símbolos y espacios. La última línea no está precedida por ningún espacio.
+ * Escribe un programa que imprima una escalera de tamaño n .
+ *
+ * Función Descripción
+ * Completa el Staircase función con el siguiente parámetro(s):
+ * . int n: numero entero.
+ *
+ * Imprimir
+ * Imprima una escalera como se describió anteriormente. No se debe devolver ningún valor.
+ * Nota: La última línea no está precedida por espacios. Todas las líneas están alineadas a la derecha.
+ *
+ * Formato de Entrada
+ * Un solo entero,n , que denota el tamaño de la escalera.
+ *
+ * Entrada de Muestra
+ * 6
+ * Salida de Muestra
+ * #
+ * ##
+ * ###
+ * ####
+ * #####
+ * ######
+ *
+ * Explicación
+ * La escalera está alineada a la derecha, compuesta de # símbolos y espacios, y tiene una altura y anchura de .
+ */
+
+const staircase = (n) => {
+  let point = " ";
+  let stair = "#";  
+  for (let i = 0; i < n; i++) {
+    let nPoints = n-1
+    console.log(point.repeat(nPoints-i)+stair)
+    stair+="#"
+  }
+}
+staircase(6);
